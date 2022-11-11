@@ -12,7 +12,17 @@
         <div class="div-top">
             <h1>CARDÁPIO</h1>
             <p>LOGO</p>
-            <span id="carrinho">CART</span>
+            <span id="carrinho" onclick="MostrarCarrinho()">CART</span>
+        </div>
+        <div id="div-carrinho">
+            <div id="carrinho-pop">
+                <div id="side-carrinho">
+                    <p onclick="FecharCarrinho()">Seu carrinho está vazio</p>
+                    <div class="itens-adicionados">
+                        <ul id="lista-itens-adicionados"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <nav>
             <ul class="sessoes">
@@ -29,8 +39,10 @@
         </nav>
     </header>
     <main>
-        <div id="botaoTopo">
-            <a href="#carrinho"><span>TOP</span></a>
+        <div class="div-botaoTopo">
+            <div id="botaoTopo">
+                <a href="#carrinho"><span>TOP</span></a>
+            </div>
         </div>
         <div id="loja">
         </div>

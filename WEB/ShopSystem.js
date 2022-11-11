@@ -1,5 +1,10 @@
 let DivLoja = document.getElementById("loja");
 
+let DivCarrinho = document.getElementById("div-carrinho");
+
+let ListaItensAbaCarrinho = document.getElementById("lista-itens-adicionados")
+
+
 
 
 //create an array wich will represents the user basket, with the prodcuts chosen within;
@@ -72,6 +77,8 @@ let increment = (id) => {
     };
 
     console.log(carrinho);
+
+    AtualizarAbaCarrinho();
 }
 
 
@@ -93,4 +100,35 @@ let decrement = (id) => {
         console.log(carrinho)
     }
 
+    AtualizarAbaCarrinho();
+
 };
+
+
+let AtualizarAbaCarrinho = () => {
+    let search = carrinho.map((x) => {
+        return `
+        <li>
+        <h1>${x.id}</h1>
+        <p>${x.quant}</p>
+        </li>`
+    }).join("");
+
+    ListaItensAbaCarrinho.innerHTML = search;
+
+}
+
+
+
+
+
+//Create functions that open and close the basket site.
+
+let MostrarCarrinho = () => {
+    DivCarrinho.style.display = 'block';
+};
+
+let FecharCarrinho = () => {
+    DivCarrinho.style.display = 'none';
+};
+
