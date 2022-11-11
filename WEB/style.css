@@ -1,0 +1,202 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+* {
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+
+    background-color: rgb(255, 250, 235);
+}
+
+
+
+.div-top{
+
+    display: flex;
+    flex: row;
+    align-items: center;
+    justify-content: space-around;
+
+
+    padding: 10px;
+}
+
+.sessoes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: auto;
+    background-color: white;
+    box-shadow: 0px 7px 18px 0px rgba(0, 0, 0, 0.103);
+    padding-left: 0px;
+
+    height: 60px;
+}
+.sessoes > li {
+    list-style: none;
+
+}
+
+li > a {
+    display: block;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+
+    width: 150px;   
+
+}
+
+a:visited {
+    color: black;
+}
+
+
+#botaoTopo {
+    position: fixed;
+    width: 100%;
+    top: 85%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+#botaoTopo > a{
+
+    position: relative;
+    top: 70%;
+
+
+
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: solid 3px black;
+    box-shadow: 2px 5px 0px 0px black;
+
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+
+
+
+.div-sessao {
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.itens-list {
+    margin-top: 20px;
+    padding-left: 7px;
+}
+
+
+.item {
+    margin-bottom: 20px;
+    margin-right: 25px;
+    list-style: none;
+
+    padding: 15px;
+    padding-bottom: 20px;
+    max-width: 310px;
+
+    background-color: white;
+
+    border: solid 3px black;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0px 1px black;
+}
+
+.item > h2 {
+    max-width: 300px;
+    font-weight: 600;
+}
+.item > span {
+    display: block;
+    margin-top: 5px;
+    max-width: 320px;
+}
+
+.price {
+    margin-top: 10px;
+}
+
+.pricebutton {
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+    border-radius: 4px;
+    width: 16px;
+    text-align: center;
+}
+
+
+#removebutton {
+    background-color: rgba(255, 0, 0, 0.353);
+    margin-right: 6px;
+}
+#removebutton:active {
+    background-color: rgba(129, 3, 3, 0.797);
+}
+
+
+#addbutton {
+    background-color: rgba(0, 255, 68, 0.353);
+    margin-left: 6px;
+}
+#addbutton:active {
+    background-color: rgba(0, 136, 36, 0.815);
+}
+
+
+
+.adicionais {
+    padding: 20px;
+}
+.item-adicional {
+    margin-bottom: 15px;
+}
+
+
+
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 110px;
+    text-align: center;
+    background-color: rgb(45, 90, 45);
+    color: white;
+    height: 40px;
+
+    padding: 20px;
+}
+
+footer > p{
+    font-size: 0.9em;
+}
+
+footer > p > a {
+    text-decoration: none;
+    font-weight: 600;
+
+}
