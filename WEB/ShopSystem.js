@@ -114,10 +114,9 @@ let AtualizarAbaCarrinho = () => {
 
     let search = carrinho.map((x) => {
         return `
-        <li>
+        <li class='item-card-cartsite'>
         <h1>${x.id}</h1>
-        <p>${x.quant}</p>
-        </li>`
+        <p class='price'><span id='removebutton' class='pricebutton' onclick='decrement("${x.id}")'>-</span>${x.quant}<span id='addbutton' class='pricebutton' onclick='increment("${x.id}")'>+</span></p></li>`
     }).join("");
 
     ListaItensAbaCarrinho.innerHTML = search;
