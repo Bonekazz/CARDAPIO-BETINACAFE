@@ -4,6 +4,9 @@ let DivCarrinho = document.getElementById("div-carrinho");
 
 let ListaItensAbaCarrinho = document.getElementById("lista-itens-adicionados")
 
+let NumberCartIcon = document.getElementById("quantidade-itens-carrinho")
+
+
 
 
 
@@ -79,6 +82,7 @@ let increment = (id) => {
     console.log(carrinho);
 
     AtualizarAbaCarrinho();
+    CalcularQuantidadeItens();
 }
 
 
@@ -101,11 +105,13 @@ let decrement = (id) => {
     }
 
     AtualizarAbaCarrinho();
+    CalcularQuantidadeItens();
 
 };
 
 
 let AtualizarAbaCarrinho = () => {
+
     let search = carrinho.map((x) => {
         return `
         <li>
@@ -115,12 +121,23 @@ let AtualizarAbaCarrinho = () => {
     }).join("");
 
     ListaItensAbaCarrinho.innerHTML = search;
-
 }
 
 
+//Create a function to calculate the total amount of itens within the client basket, and put this in the cart icon
 
+let CalcularQuantidadeItens = () => {
 
+    if (carrinho.length === 0) {
+        NumberCartIcon.innerHTML = "0";
+        console.log("seu carrinho está vazio")
+        ListaItensAbaCarrinho.innerHTML = "<div class='div-carrinho-vazio'><p class='carrinho-vazio'>Seu carrinho está vazio</p><button class='button-voltar' onclick='FecharCarrinho()'>Voltar para loja</button></div>"
+    } else {
+        let quantidade = carrinho.map((x) => x.quant).reduce((x, y) => x + y)
+        NumberCartIcon.innerHTML = `${quantidade}`;
+    }
+
+}
 
 //Create functions that open and close the basket site.
 
@@ -132,3 +149,5 @@ let FecharCarrinho = () => {
     DivCarrinho.style.display = 'none';
 };
 
+
+CalcularQuantidadeItens();

@@ -12,12 +12,15 @@
         <div class="div-top">
             <h1>CARDÁPIO</h1>
             <p>LOGO</p>
-            <span id="carrinho" onclick="MostrarCarrinho()">CART</span>
+            <div id="carrinho" onclick="MostrarCarrinho()">
+                <p id="icone-carrinho">CART</p>
+                <p id="quantidade-itens-carrinho">0</p>
+            </div>
         </div>
         <div id="div-carrinho">
             <div id="carrinho-pop">
                 <div id="side-carrinho">
-                    <p onclick="FecharCarrinho()">Seu carrinho está vazio</p>
+                    <p onclick="FecharCarrinho()">X</p>
                     <div class="itens-adicionados">
                         <ul id="lista-itens-adicionados"></ul>
                     </div>

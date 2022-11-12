@@ -64,25 +64,25 @@ a:visited {
 
 
 #carrinho {
-
+    display: flex;
+    flex-direction: row;
 }
-
-#carrinho::after {
-    content: '0';
-    display: inline-block;
+#quantidade-itens-carrinho {
+    display: inline;
     position: relative;
-    top: -7px;
+    top: -5px;
 
-    text-align: center;
-
-    width: 20px;
-    height: 20px;
-
-    background-color: rgb(142, 5, 5);
+    background-color: red;
     color: white;
+    font-weight: 700;
 
     border-radius: 100%;
 
+    text-align: center;
+    padding-bottom: 2px;
+
+    width: 22px;
+    height: 20px;
 }
 
 #div-carrinho {
@@ -108,7 +108,42 @@ a:visited {
 #side-carrinho {
     background-color: white;
     width: 80vw;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
 }
+#lista-itens-adicionados {
+    padding-left: 25px;
+    
+}
+#lista-itens-adicionados > li > h1 {
+    font-size: 1.4em;
+}
+
+.div-carrinho-vazio {
+    position: relative;
+    top: 350px;
+    left: -10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.carrinho-vazio {
+    font-size: 2em;
+    text-align: center;
+}
+.button-voltar {
+    margin-top: 10px;
+    width: 150px;
+    
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
 
 
 
@@ -184,6 +219,8 @@ a:visited {
     border: solid 3px black;
     border-radius: 8px;
     box-shadow: 2px 2px 0px 1px black;
+
+    transition: all 0.5s ease-in;
 }
 
 .item > h2 {
@@ -193,7 +230,8 @@ a:visited {
 .item > span {
     display: block;
     margin-top: 5px;
-    max-width: 320px;
+    padding-right: 5px;
+    
 }
 
 .price {
@@ -211,9 +249,11 @@ a:visited {
 }
 
 
+
 #removebutton {
     background-color: rgba(255, 0, 0, 0.353);
     margin-right: 15px;
+    transition: all 0.3s ease;
 }
 #removebutton:active {
     background-color: rgba(129, 3, 3, 0.797);
@@ -223,6 +263,7 @@ a:visited {
 #addbutton {
     background-color: rgba(0, 255, 68, 0.353);
     margin-left: 15px;
+    transition: all 0.3s ease;
 }
 #addbutton:active {
     background-color: rgba(0, 136, 36, 0.815);
