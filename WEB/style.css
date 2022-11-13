@@ -132,10 +132,13 @@ a:visited {
 
     width: 87%;
 }
+.price-item-cartSite {
+    margin-left: 10px;
+}
 
 .div-carrinho-vazio {
     position: relative;
-    top: 350px;
+    top: 200px;
     left: -10px;
 
     display: flex;

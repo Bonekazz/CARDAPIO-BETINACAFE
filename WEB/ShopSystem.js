@@ -38,7 +38,7 @@ let gerarLoja = () => {
             let {id, nome, price, desc} = y;
             return `
             <li id='${id}' class='item'><h2>${nome}</h2><span>${desc}</span>
-            <p class='price'><span id='removebutton' class='pricebutton' onclick='decrement("${id}")'>-</span>R$ ${price}<span id='addbutton' class='pricebutton' onclick='increment("${id}")'>+</span></p>
+            <p class='price'>R$ ${price}<span id='addbutton' class='pricebutton' onclick='increment("${id}")'>+</span></p>
             </li>
             `
         }).join("");
@@ -110,21 +110,45 @@ let decrement = (id) => {
 };
 
 
+//create a function to update the cart site with the client basket;
 let AtualizarAbaCarrinho = () => {
 
+
+    //map the client basket and return it on the cart site
     let search = carrinho.map((x) => {
+
+        let {id, quant} = x;
+        
+        //find the array where the itens is, by searching all the arrays within the ShopData;
+        let findItemSection = ShopData.find((y) => {
+            //specify that the item is in the second index of this array;
+            let findSection = (y[1]).find((z) => z.id === id)
+            //return that array;
+            return findSection;
+        })
+
+        //with the array(section) found, find the item(object) wich is in the second index;
+        let findItem = (findItemSection[1]).find((v) => v.id === id)
+        //put the price property of the item in a variable, to a better mainpulation; 
+        let priceFound = findItem.price
+        let nameFound = findItem.nome
+        
+        //calculate the price multiplies by de item quantidy , and put in a variable to a better manipulation;
+        let calculation = priceFound*quant
+
+        //return your HTML with all the informations that you colect;
         return `
         <li class='item-card-cartsite'>
-        <h1>${x.id}</h1>
-        <p class='price'><span id='removebutton' class='pricebutton' onclick='decrement("${x.id}")'>-</span>${x.quant}<span id='addbutton' class='pricebutton' onclick='increment("${x.id}")'>+</span></p></li>`
+        <h1>${nameFound}</h1>
+        <p class='price'><span id='removebutton' class='pricebutton' onclick='decrement("${id}")'>-</span>${quant}<span id='addbutton' class='pricebutton' onclick='increment("${id}")'>+</span><span class='price-item-cartSite'>R$ ${calculation}</span></p></li>
+        <span id='total-bill'>0</span>`
     }).join("");
 
     ListaItensAbaCarrinho.innerHTML = search;
 }
 
 
-//Create a function to calculate the total amount of itens within the client basket, and put this in the cart icon
-
+//Create a function to calculate the total amount of itens within the client basket, and put this in the cart icon;
 let CalcularQuantidadeItens = () => {
 
     if (carrinho.length === 0) {
@@ -134,12 +158,12 @@ let CalcularQuantidadeItens = () => {
     } else {
         let quantidade = carrinho.map((x) => x.quant).reduce((x, y) => x + y)
         NumberCartIcon.innerHTML = `${quantidade}`;
+
     }
 
 }
 
-//Create functions that open and close the basket site.
-
+//Create functions that open and close the basket site;
 let MostrarCarrinho = () => {
     DivCarrinho.style.display = 'block';
 };
